@@ -1,0 +1,16 @@
+#!/bin/sh
+
+runlevel="${1:?Missing runlevel}"
+path="/etc/rc.d/rc${runlevel}.d"
+
+# TODO: validate argument
+
+if [ ! -e "$path" ]; then
+	echo "Path '$path' does not exist"
+	exit 1
+fi
+
+
+for script in "$path/"*; do
+	echo "$script"
+done

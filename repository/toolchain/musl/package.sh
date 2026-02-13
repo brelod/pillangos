@@ -1,0 +1,25 @@
+name=musl
+version=1.2.5
+urls="
+https://musl.libc.org/releases/musl-$version.tar.gz
+"
+
+sha512sums="
+7bb7f7833923cd69c7a1a9b8a5f1784bfd5289663eb6061dcd43d583e45987df8a68a1be05d75cc1c88a3f5b610653d1a70f4a9cff4d8f7fd41ae73ee058c17c  musl-1.2.5.tar.gz
+"
+
+prepare() {
+    ./configure \
+        --prefix=/usr \
+        --host=$TARGET \
+        --build=$BUILD
+}
+
+compile() {
+    make
+}
+
+install() {
+    make DESTDIR="$SYSROOT" install
+}
+

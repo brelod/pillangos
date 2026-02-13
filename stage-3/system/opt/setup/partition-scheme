@@ -1,0 +1,14 @@
+label: gpt
+label-id: AEC0C4C4-0C2F-EC48-A585-63591743F84E
+device: ./disk
+unit: sectors
+first-lba: 2048
+last-lba: 4194272
+sector-size: 512
+
+./disk1 : start=        2048, size=      131072, type=C12A7328-F81F-11D2-BA4B-00A0C93EC93B, uuid=C12A7328-F81F-11D2-BA4B-00A0C93EC93B, name="boot"
+./disk2 : start=      133120, size=      131072, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=5212EBB8-C2C2-BE4E-93B0-D0A35FBC48C0, name="root1"
+./disk3 : start=      264192, size=      131072, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=85C3D991-9F40-5444-8652-0B88E1D1F76B, name="root2"
+./disk4 : start=      395264, size=      131072, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=BC7B3939-1DD0-9945-9138-C82E0CF84436, name="etc"
+./disk5 : start=      526336, size=     2097152, type=0657FD6D-A4AB-43C4-84E5-0933C84B4F4F, uuid=92B51C1E-7762-5846-B6B2-57ABF8653B1B, name="swap"
+./disk6 : start=     2623488, size=     1570785, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=016D72D9-7197-E043-A05C-499F9398CE0E, name="var"

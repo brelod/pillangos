@@ -1,0 +1,5 @@
+# https://github.com/brgl/busybox/blob/master/examples/inittab
+tty1::sysinit:/etc/init.d/start
+tty1::shutdown:/etc/init.d/stop
+tty1::restart:/sbin/init
+tty1::respawn:/sbin/getty tty1 9600

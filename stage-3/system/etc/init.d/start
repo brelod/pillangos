@@ -1,0 +1,47 @@
+#!/bin/sh
+set -e
+set -u
+
+echo "===================================================================="
+echo "Mount virtual filesytems"
+echo "===================================================================="
+mountpoint /proc >/dev/null || mount -v /proc
+mountpoint /sys  >/dev/null || mount -v /sys
+mountpoint /dev  >/dev/null || mount -v /dev
+mountpoint /run  >/dev/null || mount -v /run
+
+ln -vsf /proc/self/fd/0 /dev/stdin
+ln -vsf /proc/self/fd/1 /dev/stdout
+ln -vsf /proc/self/fd/2 /dev/stderr
+ln -vsf /proc/self/fd   /dev/fd
+
+if [ -e /proc/kcore ]; then
+    ln -vsf /proc/kcore  /dev/core
+fi
+
+mkdir -m 1777 -p /run/lock
+
+echo "===================================================================="
+echo "Setup local network"
+echo "===================================================================="
+ip addr add 127.0.0.1/8 label lo dev lo
+ip link set lo up
+
+echo "===================================================================="
+echo "Setup swap"
+echo "===================================================================="
+swapon -a
+
+echo "===================================================================="
+echo "Setup root filesystem"
+echo "===================================================================="
+fsck -A -T
+
+mount -vo remount,rw /
+
+echo "===================================================================="
+echo "Configure the kernel"
+echo "===================================================================="
+sysctl -p
+
+exit 0

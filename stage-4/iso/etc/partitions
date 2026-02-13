@@ -1,0 +1,11 @@
+label: gpt
+label-id: B7A068DE-443E-CC45-833B-4F08408E1A48
+device: disk
+unit: sectors
+first-lba: 2048
+last-lba: 10485728
+sector-size: 512
+
+disk1 : start=        2048, size=       65536, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=1BAE9D08-E5C7-A249-A5F2-87E068E191ED, name="boot", attrs="LegacyBIOSBootable"
+disk2 : start=       67584, size=      131072, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=4B7B38B1-A249-574F-8AF6-F605E79C27B2, name="root1"
+disk3 : start=      198656, size=      131072, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, uuid=CC226CC9-36E2-FB4F-87CB-99535F7ACA52, name="root2"
